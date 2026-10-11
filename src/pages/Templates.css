@@ -1,0 +1,241 @@
+.templates-page {
+  min-height: 70vh;
+}
+
+.templates-content {
+  padding-block: 48px 72px;
+}
+
+.templates-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.templates-heading .section-heading {
+  margin-top: 12px;
+}
+
+.template-count {
+  flex-shrink: 0;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.catalog-toolbar {
+  display: flex;
+  gap: 12px;
+  margin-block: 28px;
+}
+
+.catalog-search {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+  gap: 10px;
+  padding: 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text-muted);
+}
+
+.catalog-search:focus-within {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.catalog-search input {
+  width: 100%;
+  min-width: 0;
+  height: 46px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+}
+
+.catalog-search input:focus-visible {
+  outline: none;
+}
+
+.category-select-label select {
+  min-width: 170px;
+  height: 48px;
+  padding: 0 34px 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.catalog-state {
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 32px 16px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  text-align: center;
+}
+
+.catalog-state h2,
+.catalog-state p {
+  margin: 0;
+}
+
+.catalog-state p {
+  color: var(--text-muted);
+}
+
+.loading-spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: catalog-spin 700ms linear infinite;
+}
+
+@keyframes catalog-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.catalog-notice {
+  margin: 0 0 20px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text-muted);
+}
+
+.catalog-notice a {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 38px;
+}
+
+.pagination-arrow,
+.pagination-number {
+  display: grid;
+  min-width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.pagination-number {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.pagination-number:hover,
+.pagination-arrow:hover:not(:disabled) {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.pagination-number.active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+
+.pagination-arrow:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 900px) {
+  .template-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .templates-content {
+    padding-block: 32px 48px;
+  }
+
+  .templates-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .catalog-toolbar {
+    flex-direction: column;
+  }
+
+  .catalog-search {
+    flex: auto;
+  }
+
+  .category-select-label select {
+    width: 100%;
+  }
+
+  .template-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .pagination {
+    gap: 6px;
+  }
+
+  .pagination-arrow,
+  .pagination-number {
+    min-width: 36px;
+    height: 38px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner {
+    animation: none;
+  }
+}

@@ -1,0 +1,261 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.brand-icon {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: #fff;
+  background: var(--primary);
+}
+
+.navbar-content,
+.nav-links,
+.nav-actions {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-content {
+  flex: 1;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.nav-links {
+  gap: 8px;
+  margin-inline: auto;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: var(--text-muted);
+  font-weight: 500;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.nav-actions {
+  gap: 10px;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+@media (max-width: 760px) {
+  .navbar {
+    min-height: 66px;
+    flex-wrap: wrap;
+    padding-block: 10px;
+  }
+
+  .mobile-menu-toggle {
+    display: grid;
+  }
+
+  .navbar-content {
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 12px 0 6px;
+  }
+
+  .navbar-content.is-open {
+    display: flex;
+  }
+
+  .nav-links {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 4px;
+    margin: 0;
+  }
+
+  .nav-link {
+    padding: 12px;
+  }
+
+  .nav-actions {
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+    gap: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-link {
+    transition: none;
+  }
+}
+
+/* Profile avatar and dropdown */
+.profile-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profile-avatar {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--primary-soft);
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.profile-avatar:hover {
+  transform: scale(1.05);
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 1000;
+  width: 230px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.profile-info {
+  padding: 9px;
+  overflow-wrap: anywhere;
+}
+
+.profile-name {
+  margin: 0;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.profile-email {
+  margin: 5px 0 0;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.profile-divider {
+  height: 1px;
+  margin: 5px 0;
+  background: var(--border);
+}
+
+.profile-logout {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  padding: 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.profile-logout:hover {
+  background: var(--surface-muted);
+  color: var(--primary);
+}
+
+.profile-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 11px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.profile-menu-item:hover {
+  background: var(--surface-muted);
+  color: var(--primary);
+}
+
+.profile-menu-item svg {
+  flex-shrink: 0;
+}
+
+.profile-logout {
+  color: #dc2626;
+}
+
+.profile-logout:hover {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.profile-dropdown {
+  min-width: 230px;
+}
