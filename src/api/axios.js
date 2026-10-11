@@ -1,7 +1,7 @@
 import axios from "axios";
-const apiUrl = import.meta.env.VITE_API_URL;
+// const apiUrl = import.meta.env.VITE_API_URL;
 const api = axios.create({
-  baseURL: `${apiUrl}/api`, //
+  baseURL: `https://saas-backend-1-ycpu.onrender.com/api`, //
   headers: {
     "Content-Type": "application/json",
   },
@@ -18,3 +18,5 @@ api.interceptors.request.use((config) => {
 });
 
 export default api;
+
+//https://template-hub-gnxtace.netlify.app/
