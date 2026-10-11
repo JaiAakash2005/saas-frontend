@@ -1,7 +1,7 @@
 import axios from "axios";
 // const apiUrl = import.meta.env.VITE_API_URL;
 const api = axios.create({
-  baseURL: `https://saas-backend-1-ycpu.onrender.com/api`, //
+  baseURL: `https://saas-backend-1-jrw2.onrender.com/api`, //
   headers: {
     "Content-Type": "application/json",
   },
